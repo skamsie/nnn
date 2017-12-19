@@ -1,0 +1,4 @@
+*.pyc
+doc/tags
+.ropeproject/
+.DS_Store
