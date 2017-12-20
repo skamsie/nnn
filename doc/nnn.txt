@@ -1,32 +1,29 @@
-*news-headlines.txt*  News headlines in Vim.
+*nnn.txt*  News in Vim.
 
 Author:  skamsie
 Website: https://github.com/skamsie/_nnn_
 
 ===============================================================================
-CONTENTS                                         *news-headlines*
+CONTENTS                                         *nnn*
 
-1. Introduction .................................|news-headlines-intro|
-2. Requirements .................................|news-headlines-requirements|
-3. Usage ........................................|news-headlines-usage|
-4. Configuration.................................|news-headlines-configuration|
-5. Colors........................................|news-headlines-colors|
-6. About.........................................|news-headlines-about|
+1. Introduction .................................|nnn-intro|
+2. Requirements .................................|nnn-requirements|
+3. Usage ........................................|nnn-usage|
+4. Configuration.................................|nnn-configuration|
+5. Colors........................................|nnn-colors|
+6. About.........................................|nnn-about|
 ===============================================================================
 
 
-INTRODUCTION                                     *news-headlines-intro*
+INTRODUCTION                                     *nnn-intro*
 
-A vim plugin that shows the latest news headines. The content is based
-on https://newsapi.org.
+⁽(◍˃̵͈̑ᴗ˂̵͈̑)⁽
 
-The main idea is not to read the articles themselves in Vim, but rather get a
-quick overwiev of most recent headlines. The only information shown is title,
-date of publishing, description and url. The url can be opened in the browser
-using a key combination.
+A vim plugin that shows the latest news headlines. The content is
+based on https://newsapi.org.
 
 
-REQUIREMENTS                                     *news-headlines-requirements*
+REQUIREMENTS                                     *nnn-requirements*
 
 * Vim compiled with python or python3 support.
 * An api key for newsapi.org (https://newsapi.org/register). It is free for non
@@ -34,9 +31,10 @@ REQUIREMENTS                                     *news-headlines-requirements*
 * `export VIM_NEWS_API_KEY=<your_api_key>`
 
 
-USAGE                                            *news-headlines-usage*
+USAGE                                            *nnn-usage*
 
-The main command `:News` is used to load the content in a new buffer.
+The main command `:NNN` or its alias `:News` is used to load the content
+in a new buffer.
 
 Without any arguments:
 It uses the configuration to look for articles. See CONFIGURATION below.
@@ -57,13 +55,13 @@ specified the defaults will be used (see CONFIGURATION for defaults)
 
 EXAMPLES:~
 Search for articles from cnn only:
-`:News cnn`
+`:NNN cnn`
 
 Search for multiple topics:
-`:News /vim, /bitcoin:en:popularity, /climate change::relevancy`
+`:NNN /vim, /bitcoin:en:popularity, /climate change::relevancy`
 
 Search sources and topics:
-`:News bbc-news, /bitcoin:en:popularity`
+`:NNN bbc-news, /bitcoin:en:popularity`
 
 NOTES:~
 The sources accept no parameters as they are simply publication names.
@@ -77,62 +75,66 @@ BUFFER COMMANDS:~
 * `<CR>` While on the top index bar, goes to the corresponding section
 
 
-CONFIGURATION                                    *news-headlines-configuration*
+CONFIGURATION                                    *nnn-configuration*
 
 Global variables that can be configured in .vimrc or locally.
 
-`g:news_headlines_sources`
+`g:nnn_sources`
     - set the desired sources for the articles (max 20 sources)
     - the values must be separated by comma
-    - can be disabled with `let g:news_headlines_sources=""`
+    - can be disabled with `let g:nnn_sources=""`
 
-    example: `let g:news_headlines_sources='cnn, bbc-news, wired'`
+    example: `let g:nnn_sources='cnn, bbc-news, wired'`
     documentation: https://newsapi.org/sources
 
-`g:news_headlines_topics`
+`g:nnn_topics`
     - set the desired topics
     - variable is not set by default
     - it is used to search articles by topic instead of source
 
     example:
-      `let g:news_headlines_topics =`
+      `let g:nnn_topics =`
       `    \ [ {'topic': 'programming languages', 'language': 'en'},`
       `    \   {'topic': 'angela merkel', 'language': 'de'},`
       `    \   {'topic': 'apple', 'sort_by': 'popularity'}`
       `    \ ]`
     documentation: https://newsapi.org/docs/endpoints/everything
 
-`g:news_headlines_wrap_text`
+`g:nnn_wrap_text`
     - where to wrap text (integer)
     - default is 120
 
-`g:news_headlines_show_published_at` (1 or 0)
+`g:nnn_show_published_at` (1 or 0)
     - if 0, does not show when the article was published
     - default is 1
 
-`g:news_headlines_default_topic_lang`
+`g:nnn_default_topic_lang`
     - default language for topics
     - it is set to empty string by default
 
-`g:news_headlines_default_topic_sort`
+`g:nnn_default_topic_sort`
     - default sortBy for topics
     - it is set to "relevancy" by default
 
-`g:news_headlines_limit_topics_at`
+`g:nnn_limit_topics_at`
     - maximum number of articles per topic to show
     - default is 10
 
-`g:news_headlines_nomodifiable`
+`g:nnn_nomodifiable`
     - set to 1 to make buffer modifiabe by default
     - default is 0
 
-`g:news_headlines_disable_threading`
+`g:nnn_disable_threading`
     - warning: makes things slow
     - if for some reason you want the topics request to happen one after
       the other instead of in parallel, set this to 1
 
+`g:nnn_browser`
+    - if not set, the default browser will be used
+    - eg: 'firefox', 'safari', etc.
 
-COLORS                                           *news-headlines-colors*
+
+COLORS                                           *nnn-colors*
 
 The plugin tries to match the syntax to your current colorscheme. However,
 if needed, the highlights can be overwritten. Just drop something like the
@@ -143,12 +145,12 @@ following in your .vimrc:
   `hi link NHLink Statement`
 `endfunction`
 
-`au! BufEnter,ColorScheme *.news-headlines call SetNHColors()`
+`au! BufEnter,ColorScheme *.nnn call SetNHColors()`
 
-See more in syntax/news-syntax.vim
+See more in syntax/nnn.vim
 
 
-ABOUT                                            *news-headlines-about*
+ABOUT                                            *nnn-about*
 
 https://github.com/skamsie/_nnn_
 

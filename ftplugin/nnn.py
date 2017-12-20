@@ -252,7 +252,9 @@ def set_buffer_vars(sources, groups, menu):
 
 
 def open_link():
-    """Open link in default browser."""
+    """Open link in the browser."""
+    nnn_browser = vim.eval('g:nnn_browser') or None
+
     def get_url(line_nr):
         line_number = line_nr - 1
         line = vim.current.buffer[line_number]
@@ -271,7 +273,7 @@ def open_link():
     url = get_url(current_line_nr)
 
     if url:
-        browser = webbrowser.get()
+        browser = webbrowser.get(using=nnn_browser)
         browser.open(url)
 
 
@@ -303,7 +305,7 @@ def show_sources():
     """Print all possible news sources."""
     news = GetNews(API_KEY)
     sources = map(lambda x: str(x['id']), news.get_sources())
-    vim.command('new .news-headlines-sources')
+    vim.command('new .nnn-sources')
     for i in sources:
         write_to_buff(i)
     del vim.current.buffer[0]
@@ -318,7 +320,7 @@ def go_to_source():
 
 
 def parse_vim_args(g_arg):
-    """Turn g:news_headlines_args into sources and topics.
+    """Turn g:nnn_args into sources and topics.
 
     the pattern is:
         sources:
@@ -355,24 +357,24 @@ def main():
     buffer_setup()
 
     # user customizable vars
-    wrap_text = int(vim.eval('g:news_headlines_wrap_text'))
-    show_published_at = int(vim.eval('g:news_headlines_show_published_at'))
-    default_topic_lang = vim.eval('g:news_headlines_default_topic_lang')
-    default_topic_sort = vim.eval('g:news_headlines_default_topic_sort')
-    limit_topics_at = int(vim.eval('g:news_headlines_limit_topics_at'))
-    disable_threading = int(vim.eval('g:news_headlines_disable_threading'))
-    cmd_line_args = vim.eval('g:news_headlines_arg')
+    wrap_text = int(vim.eval('g:nnn_wrap_text'))
+    show_published_at = int(vim.eval('g:nnn_show_published_at'))
+    default_topic_lang = vim.eval('g:nnn_default_topic_lang')
+    default_topic_sort = vim.eval('g:nnn_default_topic_sort')
+    limit_topics_at = int(vim.eval('g:nnn_limit_topics_at'))
+    disable_threading = int(vim.eval('g:nnn_disable_threading'))
+    cmd_line_args = vim.eval('g:nnn_arg')
 
     if cmd_line_args:
         args = parse_vim_args(cmd_line_args)
         sources = args['sources']
         topics = args['topics']
     else:
-        sources = vim.eval('g:news_headlines_sources')
-        topics = vim.eval('g:news_headlines_topics')
+        sources = vim.eval('g:nnn_sources')
+        topics = vim.eval('g:nnn_topics')
 
     if not sources and not topics:
-        print('No sources or topics selected. Check the help (:help news-headlines)')
+        print('No sources or topics selected. Check the help (:help nnn)')
         return
 
     html = HTMLParser()

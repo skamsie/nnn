@@ -36,4 +36,4 @@ syntax match NHIndexConceal /-/ conceal containedin=NHSource,NHTopicsMenu
 "   ...
 " endfunction
 "
-" au! BufEnter,ColorScheme *.news-headlines call SetNHColors()
+" au! BufEnter,ColorScheme *.nnn call SetNHColors()
