@@ -1,7 +1,7 @@
 *nnn.txt*  News in Vim.
 
 Author:  skamsie
-Website: https://github.com/skamsie/_nnn_
+Website: https://github.com/skamsie/nnn
 
 ===============================================================================
 CONTENTS                                         *nnn*
@@ -152,6 +152,6 @@ See more in syntax/nnn.vim
 
 ABOUT                                            *nnn-about*
 
-https://github.com/skamsie/_nnn_
+https://github.com/skamsie/nnn
 
 vim:ft=help
