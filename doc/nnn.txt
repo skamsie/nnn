@@ -1,4 +1,4 @@
-*nnn.txt*  News in Vim.
+*nnn.txt*  News in Vim ⁽(◍˃̵͈̑ᴗ˂̵͈̑)⁽
 
 Author:  skamsie
 Website: https://github.com/skamsie/nnn
@@ -11,13 +11,12 @@ CONTENTS                                         *nnn*
 3. Usage ........................................|nnn-usage|
 4. Configuration.................................|nnn-configuration|
 5. Colors........................................|nnn-colors|
-6. About.........................................|nnn-about|
+6. Troubleshooting...............................|nnn-troubleshooting|
+7. About.........................................|nnn-about|
 ===============================================================================
 
 
 INTRODUCTION                                     *nnn-intro*
-
-⁽(◍˃̵͈̑ᴗ˂̵͈̑)⁽
 
 A vim plugin that shows the latest news headlines. The content is
 based on https://newsapi.org.
@@ -27,14 +26,14 @@ REQUIREMENTS                                     *nnn-requirements*
 
 * Vim compiled with python or python3 support.
 * An api key for newsapi.org (https://newsapi.org/register). It is free for non
-  comercial use.
-* `export VIM_NEWS_API_KEY=<your_api_key>`
+  commercial use.
+* Add the following line to your .bashrc or .zshrc and reload the terminal
+  `export VIM_NEWS_API_KEY=<your_api_key>`
 
 
 USAGE                                            *nnn-usage*
 
-The main command `:NNN` or its alias `:News` is used to load the content
-in a new buffer.
+The main command `:NNN` is used to load the news content in a new buffer.
 
 Without any arguments:
 It uses the configuration to look for articles. See CONFIGURATION below.
@@ -148,6 +147,15 @@ following in your .vimrc:
 `au! BufEnter,ColorScheme *.nnn call SetNHColors()`
 
 See more in syntax/nnn.vim
+
+
+TROUBLESHOOTING                                  *nnn-troubleshooting*
+
+The errors are not very graceful and if you get one of the following, it's
+coming directly from newsapi.org:
+
+`HTTP Error 401: Unauthorized` - probably your api key is not set or incorrect
+`HTTP Error 400: Bad Request`  - check your `g:nnn_sources` var or command params
 
 
 ABOUT                                            *nnn-about*

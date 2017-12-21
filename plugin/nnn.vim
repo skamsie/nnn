@@ -66,6 +66,4 @@ function! NNN(...)
   endif
 endfunction
 
-" NNN or its alias News
-command! -nargs=? News call NNN(<f-args>)
 command! -nargs=? NNN call NNN(<f-args>)
