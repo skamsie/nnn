@@ -1,7 +1,7 @@
 ## nnn
 
 News in Vim. [⁽(◍˃̵͈̑ᴗ˂̵͈̑)⁽](https://github.com/skamsie/nnn/raw/master/nnn.png)  
-This is pretty much an interface for https://newsapi.org
+This is pretty much a vim / neovim interface for https://newsapi.org
 
 #### Use
 
