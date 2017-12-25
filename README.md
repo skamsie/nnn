@@ -39,7 +39,7 @@ Topics have to start with a `/` and consist of a string of one word or more word
 separated by whitespace. The language of the results as well as the desired
 sorting algorithm can be specified by using `:` and the language abbreviation,
 followed by `:` and the sorting type. They are however optional and if not
-specified the defaults will be used (see CONFIGURATION for defaults)
+specified the defaults will be used (see `:help nnn-configuration` for defaults)
 
 **Examples**
 
