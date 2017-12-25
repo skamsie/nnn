@@ -43,9 +43,16 @@ specified the defaults will be used (see `:help nnn-configuration` for defaults)
 
 **Examples**
 
-Search for articles from cnn only: `:NNN cnn`  
-Search for multiple topics: `:NNN /vim, /bitcoin:en:popularity, /climate change::relevancy`  
-Search sources and topics: `:NNN bbc-news, /bitcoin:en:popularity`  
+```vim
+"Search for articles from cnn only
+:NNN cnn
+
+"Search for multiple topics
+:NNN /vim, /bitcoin:en:popularity, /climate change::relevancy
+
+"Search sources and topics:
+:NNN bbc-news, /bitcoin:en:popularity
+```
 
 **Buffer commands**
 
