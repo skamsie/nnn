@@ -33,7 +33,8 @@ REQUIREMENTS                                     *nnn-requirements*
 
 USAGE                                            *nnn-usage*
 
-The main command `:NNN` is used to load the news content in a new buffer.
+The main command `:NNN` or its alias `:News` is used to load the news
+content in a new buffer.
 
 Without any arguments:
 It uses the configuration to look for articles. See CONFIGURATION below.

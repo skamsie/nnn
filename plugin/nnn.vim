@@ -67,3 +67,4 @@ function! NNN(...)
 endfunction
 
 command! -nargs=? NNN call NNN(<f-args>)
+command! -nargs=? News call NNN(<f-args>)
