@@ -1,6 +1,6 @@
 # nnn
 
-News in Vim. ⁽(◍˃̵͈̑ᴗ˂̵͈̑)⁽
+News in Vim. ⁽(◍˃̵͈̑ᴗ˂̵͈̑)⁽  
 This is pretty much a vim / neovim interface for https://newsapi.org  
 
 
