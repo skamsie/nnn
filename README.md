@@ -10,7 +10,7 @@ This is pretty much a vim / neovim interface for https://newsapi.org
 
 Requirements
 
-* Vim compiled with python or python3 support
+* Neovim or Vim compiled with python3 support  
 * An api key for newsapi.org (https://newsapi.org/register). It is free for non
   commercial use
 * Add the following line to your .bashrc or .zshrc and reload the terminal  
